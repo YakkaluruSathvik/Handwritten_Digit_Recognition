@@ -5,10 +5,10 @@ import tensorflow as tf
 from keras.models import load_model
 
 MODEL = load_model("model.h5")
-image_no = 0
+image_no = 9
 
 # input_img = cv2.imread('sample_images/image_{}.png'.format(image_no))
-input_img = cv2.imread('test/{}.png'.format(image_no))
+input_img = cv2.imread('test_images/{}.png'.format(image_no))
 
 print(input_img)
 print(input_img.shape)
@@ -23,4 +23,4 @@ image_resize = image_resize/255
 image_reshape = np.reshape(image_resize,[1,28,28])
 
 prediction = MODEL.predict(image_reshape)
-print(np.argmax(prediction))
+print(f"The Predicted digit is {np.argmax(prediction)}")
